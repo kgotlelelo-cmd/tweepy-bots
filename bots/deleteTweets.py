@@ -14,7 +14,7 @@ def isValid(tweetDate):
     return False
 
 def deleteTweets(api):
-    for status in tweepy.Cursor(api.user_timeline).items(200):
+    for status in tweepy.Cursor(api.user_timeline).items(500):
         if isValid(status.created_at):
             api.destroy_status(status.id)
             logger.info("status deleted with id {id}".format(id=status.id))
