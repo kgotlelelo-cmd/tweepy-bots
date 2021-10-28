@@ -1,0 +1,14 @@
+# No version is needed to use compose especification
+services:
+
+  deleteTweetsbot:
+    container_name: ${HOST_NAME} 
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    image: ${IMAGE}
+    environment:
+      - CONSUMER_KEY=${CONSUMER_KEY}
+      - CONSUMER_SECRET=${CONSUMER_SECRET}
+      - ACCESS_TOKEN=${ACCESS_TOKEN}
+      - ACCESS_TOKEN_SECRET=${ACCESS_TOKEN_SECRET}
