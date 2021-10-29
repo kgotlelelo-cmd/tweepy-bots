@@ -14,10 +14,19 @@ def isValid(tweetDate):
     return False
 
 def deleteTweets(api):
+
+    i = 0
+
     for status in tweepy.Cursor(api.user_timeline).items(500):
         if isValid(status.created_at):
             api.destroy_status(status.id)
+            i = i + 1
             logger.info("status deleted with id {id}".format(id=status.id))
+            logger.info("Number of status delete {i}".format(i=i))
+    
+    if i == 0:
+        logger.info("Done for the day No tweets are older than 5 days in the 500 batch")
+        raise tweepy.TweepyException
 
 def main():
     api = create_api()
