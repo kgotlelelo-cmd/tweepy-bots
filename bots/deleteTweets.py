@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
 def isValid(tweetDate):
-    deadline = datetime.now().replace(tzinfo=None) - timedelta(days = 5)
+    deadline = datetime.now().replace(tzinfo=None) - timedelta(days = 3)
     if tweetDate.replace(tzinfo=None) < deadline:
         return True
     return False
