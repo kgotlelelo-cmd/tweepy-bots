@@ -21,9 +21,10 @@ def deleteTweets(api):
         if isValid(status.created_at):
             api.destroy_status(status.id)
             i = i + 1
-            logger.info("status deleted with id {id}".format(id=status.id))
-            logger.info("Number of status delete {i}".format(i=i))
+            logger.info("status deleted with id : {id}".format(id=status.id))
+            logger.info("Number of status deleted : {i}".format(i=i))
     
+    logger.info("Total tweets deleted per 500: {i}".format(i=i))
     if i == 0:
         logger.info("Done for the day No tweets are older than 5 days in the 500 batch")
         raise tweepy.TweepyException
