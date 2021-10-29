@@ -28,6 +28,10 @@ def deleteTweets(api):
     
     logger.info("Total tweets deleted per {v}: {i}".format(i=i,v=v))
 
+    if i == 0:
+        logger.info("Done for the day No tweets are older than 3 days in the timeline")
+        raise tweepy.TweepyException
+
 def main():
     api = create_api()
 
