@@ -26,7 +26,7 @@ def main():
         try:
             deleteTweets(api)
         except tweepy.TweepyException:
-            time.sleep(60*15)
+            time.sleep(86400)
             continue
         except StopIteration:
             break
