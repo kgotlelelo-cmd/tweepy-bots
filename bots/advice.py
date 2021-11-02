@@ -2,7 +2,6 @@ import requests
 import json
 import logging
 
-logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 
 def tweetAdvice(api):
@@ -11,5 +10,9 @@ def tweetAdvice(api):
     text = list(response.values())[0].get("advice")
     hashtag = "  #adviceBot"
     tweet = text + hashtag
-    api.update_status(tweet)
+
+    try:
+        api.update_status(tweet)
+    except Exception as e:
+        logger.error(e)
     logger.info("tweet of the day: "+tweet)

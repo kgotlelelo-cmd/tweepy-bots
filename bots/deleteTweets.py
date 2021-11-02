@@ -38,11 +38,11 @@ def main():
 
     while True:
         try:
-            tweetAdvice(api)
             deleteTweets(api)
         except tweepy.TweepyException:
+            tweetAdvice(api)
             logger.info("Sleeping for 24hours")
-            time.sleep(86400)
+            time.sleep(86400)   
             continue
         except StopIteration:
             break
