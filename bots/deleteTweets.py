@@ -1,6 +1,7 @@
 import tweepy
 import logging
 from config import create_api
+from advice import tweetAdvice
 from datetime import datetime,timedelta
 import time
 
@@ -37,6 +38,7 @@ def main():
 
     while True:
         try:
+            tweetAdvice(api)
             deleteTweets(api)
         except tweepy.TweepyException:
             logger.info("Sleeping for 24hours")
